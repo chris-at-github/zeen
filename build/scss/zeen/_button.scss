@@ -1,0 +1,26 @@
+.button {
+	& {
+		padding: 4px 15px;
+		background: $gray-300;
+		border: 0;
+	}
+
+	& + .button {
+		margin-left: 5px;
+	}
+
+	&:hover {
+		&:not([disabled]) {
+			cursor: pointer;
+			background: $gray-500;
+		}
+	}
+
+	&:focus,
+	&.focus,
+	&:not([disabled]):not(.disabled):active,
+	&:not([disabled]):not(.disabled).active {
+		box-shadow: none;
+		outline: 0;
+	}
+}
