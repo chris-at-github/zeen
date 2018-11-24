@@ -44,8 +44,6 @@
 
 		data: function() {
 			return {
-				settings: {},
-				scene: {},
 				windowWidth: window.innerWidth,
 				windowHeight: window.innerHeight
 			}
@@ -75,13 +73,11 @@
 			},
 
 			getMapWidth: function() {
-				return 400;
+				return this.service.getWidth(Zeen.scene.tiles);
 			},
 
 			getMapHeight: function() {
-				console.log(Zeen);
-
-				return 400;
+				return this.service.getHeight(Zeen.scene.tiles);
 			}
 		},
 
@@ -93,6 +89,10 @@
 					'top': this.getMapCenterPosition().y + 'px',
 					'left': this.getMapCenterPosition().x + 'px'
 				}
+			},
+
+			service: function() {
+				return Zeen.factory.service.create('service.map');
 			}
 
 			// tiles: function() {
@@ -102,11 +102,6 @@
 			// objects: function() {
 			// 	return this.scene.objects;
 			// }
-		},
-
-		created: function() {
-			// this.settings = Zeen.settings;
-			// this.scene = Zeen.scene;
 		}
 	}
 </script>
