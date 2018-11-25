@@ -1,15 +1,13 @@
 <template>
 	<div class="map" v-bind:style="styleObject">
 		<div class="map--tile-container">
-			<!--
-			<cs-tile
-				v-for="(tile, index) in tiles"
+			<z-tile
+				v-for="(tile, id) in tiles"
 				v-bind:x="tile.x"
 				v-bind:y="tile.y"
-				v-bind:terrain="tile.terrain"
-				v-bind:key="index">
-			</cs-tile>
-			-->
+				v-bind:properties="tile"
+				v-bind:key="id">
+			</z-tile>
 		</div>
 
 		<div class="map--object-container">
@@ -28,7 +26,7 @@
 
 <script>
 	// import MapHelper from '../helpers/map';
-	// import Tile from './tile';
+	import Tile from './tile';
 	// import Object from './object'
 
 	export default {
@@ -38,7 +36,7 @@
 
 		// @see: https://vuejs.org/v2/guide/components.html#Local-Registration
 		components: {
-			// 'cs-tile': Tile,
+			'z-tile': Tile,
 			// 'cs-object': Object
 		},
 
@@ -93,15 +91,11 @@
 
 			service: function() {
 				return Zeen.factory.service.create('service.map');
-			}
+			},
 
-			// tiles: function() {
-			// 	return this.scene.tiles;
-			// },
-			//
-			// objects: function() {
-			// 	return this.scene.objects;
-			// }
+			tiles: function() {
+				return Zeen.scene.tiles;
+			}
 		}
 	}
 </script>

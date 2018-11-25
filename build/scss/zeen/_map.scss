@@ -2,3 +2,18 @@
 	position: absolute;
 	background: $gray-200;
 }
+
+.tile {
+	position: absolute;
+}
+
+.tile--terrain {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.tile--terrain-e328a70f-5d3d-4cac-b2f9-4dfa95c5db0e {
+	background: #e3f0bb;
+}
