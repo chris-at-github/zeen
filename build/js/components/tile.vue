@@ -1,20 +1,33 @@
 <template>
 	<div class="tile" v-bind:style="styleObject">
 		<div v-bind:class="terrainClass"></div>
+		<div class="tile--object-container">
+			<z-object
+				v-for="(object, id) in objects"
+				v-bind:properties="object"
+				v-bind:key="id">
+			</z-object>
+		</div>
 	</div>
 </template>
 
 <script>
-	// import MapHelper from '../helpers/map';
-	// use xlink:href binding
-	// @see: https://github.com/vuejs/vue/issues/648#issuecomment-304664977
+	import Object from './object';
+
 	export default {
+		// @see: https://vuejs.org/v2/guide/components.html#Local-Registration
+		components: {
+			'z-object': Object
+		},
+
 		props: ['x', 'y', 'properties'],
+
 		data: function() {
 			return {
 				settings: {}
 			}
 		},
+
 		computed: {
 			position: function() {
 				return {
@@ -34,6 +47,10 @@
 
 			terrainClass: function() {
 				return 'tile--terrain tile--terrain-' + this.properties.terrain;
+			},
+
+			objects: function() {
+				return this.properties.objects;
 			}
 		}
 	}

@@ -9,35 +9,16 @@
 				v-bind:key="id">
 			</z-tile>
 		</div>
-
-		<div class="map--object-container">
-			<!--
-			<cs-object
-				v-for="(object, index) in objects"
-				v-bind:id="object.id"
-				v-bind:position="object.position"
-				v-bind:size="object.size"
-				v-bind:key="index">
-			</cs-object>
-			-->
-		</div>
 	</div>
 </template>
 
 <script>
-	// import MapHelper from '../helpers/map';
 	import Tile from './tile';
-	// import Object from './object'
 
 	export default {
-		// mixins: [
-		// 	MapHelper
-		// ],
-
 		// @see: https://vuejs.org/v2/guide/components.html#Local-Registration
 		components: {
-			'z-tile': Tile,
-			// 'cs-object': Object
+			'z-tile': Tile
 		},
 
 		data: function() {
