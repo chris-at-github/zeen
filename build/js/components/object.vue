@@ -1,11 +1,14 @@
 <template>
 	<div class="object" v-bind:style="style">
+		<svg class="object--skeleton">
+			<use v-bind="{'xlink:href':'#object-' + id}" />
+		</svg>
 	</div>
 </template>
 
 <script>
 	export default {
-		props: ['properties'],
+		props: ['id', 'properties'],
 		data: function() {
 			return {}
 		},

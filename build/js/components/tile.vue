@@ -4,6 +4,7 @@
 		<div class="tile--object-container">
 			<z-object
 				v-for="(object, id) in objects"
+				v-bind:id="id"
 				v-bind:properties="object"
 				v-bind:key="id">
 			</z-object>
